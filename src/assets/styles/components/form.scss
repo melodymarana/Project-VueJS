@@ -1,0 +1,52 @@
+label {
+  @apply mr-2;
+}
+
+.btn {
+  @apply bg-indigo-400 text-white rounded-sm px-4;
+
+  &.delete {
+    @apply text-xs bg-red-600;
+  }
+}
+
+.form {
+  @apply flex p-3 bg-gray-100;
+}
+
+.form-control {
+  @apply border rounded-sm border-gray-300;
+}
+
+.form-wrap {
+  @apply flex flex-1 flex-wrap justify-between items-center;
+
+  .btn {
+    @apply m-2;
+  }
+}
+
+.form-group {
+  @apply flex items-center m-2;
+}
+
+.form-control,
+.btn {
+  @apply h-8;
+}
+
+.validation {
+  @apply text-center mb-4;
+}
+
+.error {
+  @apply text-red-600;
+}
+
+.success {
+  @apply text-green-600;
+}
+
+.empty {
+  @apply my-4 text-center;
+}

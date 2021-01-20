@@ -1,0 +1,20 @@
+table {
+  @apply border-collapse w-full;
+}
+
+.table-wrap {
+  @apply overflow-x-auto;
+}
+
+td,
+th {
+  @apply border p-2;
+}
+
+th {
+  @apply p-2 text-left text-white bg-indigo-400;
+}
+
+td {
+  @apply p-2;
+}

@@ -1,28 +1,75 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="main">
+    <member-form @add:member="addMember" class="mb-4" />
+    <member-table
+      :members="members"
+      @delete:member="deleteMember"
+      @edit:member="editMember"
+    />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import MemberTable from '@/components/MemberTable'
+import MemberForm from '@/components/MemberForm'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    MemberTable,
+    MemberForm,
+  },
+  data() {
+    return {
+      members: [
+        {
+          id: 1,
+          name: 'Melody Marana',
+          email: 'melody@gmail.com',
+          phonenumber: '0912224456',
+        },
+        {
+          id: 2,
+          name: 'Tuner Scottish',
+          email: 'tuner.scott@gmail.com',
+          phonenumber: '0912224457',
+        },
+        {
+          id: 3,
+          name: 'Capo Scottish',
+          email: 'capo.scott@gmail.com',
+          phonenumber: '0912224458',
+        },
+      ],
+    }
+  },
+  methods: {
+    addMember(member) {
+      const lastId =
+        this.members.length > 0 ? this.members[this.members.length - 1].id : 0
+      const id = lastId + 1
+      const newMember = { ...member, id }
+      this.members = [...this.members, newMember]
+      console.log(this.members)
+    },
+    deleteMember(id) {
+      this.members = this.members.filter((member) => member.id !== id)
+    },
+    editMember(id, updatedMember) {
+      this.members = this.members.map((member) =>
+        member.id === id ? updatedMember : member
+      )
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.main {
+  @apply max-w-5xl mx-auto p-4 font-sans;
+}
+
+.title {
+  @apply text-xl font-bold mb-4;
 }
 </style>
