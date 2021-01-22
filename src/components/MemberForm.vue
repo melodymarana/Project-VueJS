@@ -9,7 +9,7 @@
             ref="first"
             v-model="member.name"
             type="text"
-            :class="{ 'has-error': submitting && invalidName }"
+            :class="{ invalid: submitting && invalidName }"
             class="form-control"
             @focus="clearStatus"
             @keypress="clearStatus"
@@ -20,7 +20,7 @@
           <input
             v-model="member.email"
             type="text"
-            :class="{ 'has-error': submitting && invalidEmail }"
+            :class="{ invalid: submitting && invalidEmail }"
             class="form-control"
           />
         </div>
@@ -29,17 +29,17 @@
           <input
             v-model="member.phonenumber"
             type="text"
-            :class="{ 'has-error': submitting && invalidPhonenumber }"
+            :class="{ invalid: submitting && invalidPhonenumber }"
             class="form-control"
           />
         </div>
         <button class="btn">Add</button>
       </div>
       <div class="validation">
-        <small v-if="error && submitting" class="error">
+        <small v-if="success" class="success"> successfully added !!! </small>
+        <small v-else-if="error && submitting" class="error">
           please fill out all fields ***
         </small>
-        <small v-if="success" class="success"> successfully added !!! </small>
       </div>
     </form>
   </div>
