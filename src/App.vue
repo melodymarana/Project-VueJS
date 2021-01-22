@@ -2,7 +2,7 @@
   <div id="app" class="main">
     <member-form @add:member="addMember" class="mb-4" />
     <member-table
-      :members="members"
+      v-bind:members="members"
       @delete:member="deleteMember"
       @edit:member="editMember"
     />
@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import MemberTable from '@/components/MemberTable'
-import MemberForm from '@/components/MemberForm'
+import MemberForm from './components/MemberForm.vue'
+import MemberTable from './components/MemberTable.vue'
 
 export default {
   name: 'App',
   components: {
-    MemberTable,
     MemberForm,
+    MemberTable,
   },
   data() {
     return {
@@ -39,6 +39,12 @@ export default {
           name: 'Capo Scottish',
           email: 'capo.scott@gmail.com',
           phonenumber: '0912224458',
+        },
+        {
+          id: 4,
+          name: 'Arena Scottish',
+          email: 'areana.scott@gmail.com',
+          phonenumber: '0912224478',
         },
       ],
     }

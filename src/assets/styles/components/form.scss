@@ -11,7 +11,7 @@ label {
 }
 
 .form {
-  @apply flex p-3 bg-gray-100;
+  @apply flex flex-col p-3 bg-gray-100;
 }
 
 .form-control {

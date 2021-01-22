@@ -37,9 +37,9 @@
       </div>
       <div class="validation">
         <small v-if="error && submitting" class="error">
-          (please fill out all fields)
+          please fill out all fields ***
         </small>
-        <small v-if="success" class="success"> (successfully added) </small>
+        <small v-if="success" class="success"> successfully added !!! </small>
       </div>
     </form>
   </div>
@@ -64,7 +64,7 @@ export default {
   methods: {
     handleSubmit() {
       this.submitting = true
-      this.clearStatus() // การเรียกใช้ function clearStatus
+      this.clearStatus() // function clearStatus
 
       if (this.invalidName || this.invalidEmail || this.invalidPhonenumber) {
         this.error = true
